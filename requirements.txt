@@ -1,0 +1,5 @@
+-e .
+mypy
+pytest
+autopep8
+ipykernel
