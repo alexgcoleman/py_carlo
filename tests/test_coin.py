@@ -20,7 +20,7 @@ def test_flip_coin_distr() -> None:
 
     min_bounds = (NUM_FLIPS // 2) * (1-(TOLERANCE * 2))
     max_bounds = (NUM_FLIPS // 2) * (1+(TOLERANCE * 2))
-    assert min_bounds <= results['HEADS'] <= max_bounds
+    assert min_bounds <= results[coin.CoinResult.HEADS] <= max_bounds
 
 
 def test_n_consecutive_false_short_flips() -> None:
@@ -29,6 +29,6 @@ def test_n_consecutive_false_short_flips() -> None:
     below 'n'"""
     for num_flips in range(1, NUM_FLIPS + 1):
         assert coin.check_for_n_consecutive(
-            flips=["HEADS"] * num_flips,
-            result='HEADS',
+            flips=[coin.CoinResult.HEADS] * num_flips,
+            result=coin.CoinResult.HEADS,
             n=num_flips-1)
