@@ -3,20 +3,25 @@ from __future__ import annotations
 from typing import List
 import random
 
-COIN_RESULTS = ['HEADS', 'TAILS']
+import enum
 
 
-def flip_coin() -> str:
-    return random.choice(COIN_RESULTS)
+class CoinResult(enum.Enum):
+    HEADS = 1
+    TAILS = 0
 
 
-def flip_n_coins(n: int) -> List[str]:
+def flip_coin() -> CoinResult:
+    return random.choice(list(CoinResult))
+
+
+def flip_n_coins(n: int) -> List[CoinResult]:
     return [flip_coin() for _ in range(n)]
 
 
 def check_for_n_consecutive(
-        flips: List[str],
-        result: str,
+        flips: List[CoinResult],
+        result: CoinResult,
         n: int) -> bool:
     """Checks for n consecutive instances of 'result' in 
     the list 'flips', returns True if they exist in that 
