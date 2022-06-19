@@ -88,24 +88,3 @@ class Simulation:
         results = self.results_to_df()
         stats = results.groupby('run_id')['result'].value_counts()
         return stats
-
-
-COIN_RESULTS = ['HEADS', 'TAILS']
-
-if __name__ == "__main__":
-
-    def two_flipped_coins_are_heads() -> bool:
-        flip = (random.choice(COIN_RESULTS), random.choice(COIN_RESULTS))
-        return flip == ('HEADS', 'HEADS')
-
-    sim = Simulation(
-        num_sims=100,
-        num_runs=5,
-        sim_function=two_flipped_coins_are_heads
-    )
-
-    sim.run()
-
-    stats = sim.result_stats()
-    print(stats)
-    pass
