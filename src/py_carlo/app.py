@@ -7,7 +7,7 @@ from functools import partial
 def check_for_3_in_5() -> bool:
     return coin.check_for_n_consecutive(
         flips=coin.flip_n_coins(5),
-        result='HEADS',
+        result=coin.CoinResult.HEADS,
         n=3
     )
 
